@@ -1,1 +1,28 @@
-<p>breeds-list works!</p>
+<div class="container" *ngIf="breeds">
+  <div class="counter">
+    <h1>Total breeds: {{ breeds.total }}</h1>
+  </div>
+  <div class="breeds" *ngFor="let breed of breeds.data">
+    <app-breed [breed]="breed"></app-breed>
+  </div>
+  <div class="paginator" *ngIf="breeds">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!breeds.prev_page_url"
+      (click)="getPrevious()"
+    >
+      Previous
+    </button>
+
+    <h2>Page {{breeds.current_page}}/{{totalPages}}</h2>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!breeds.next_page_url"
+      (click)="getNext()"
+    >
+      Next
+    </button>
+  </div>
+</div>

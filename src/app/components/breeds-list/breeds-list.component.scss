@@ -1,0 +1,26 @@
+.container {
+    width: 100vw;
+    padding: 1rem;
+
+    .counter {
+        text-align: center;
+    }
+
+    .breeds{
+        width: 50%;
+        margin: 2rem auto;
+    }
+
+    .paginator {
+        width: 50%;
+        margin: 1rem auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        h2{
+            opacity: 0.5;
+        }
+        
+      }
+}
