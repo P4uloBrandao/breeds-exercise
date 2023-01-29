@@ -1,4 +1,30 @@
+::ng-deep {
+  mat-icon {
+    margin: 1rem;
+    background-color: #ff878775;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  mat-icon:hover {
+    background-color: #ff8787;
+  }
+}
+
 .title {
-    margin: 1rem 0;
-    text-align: center;
+  margin: 1rem auto;
+  text-align: center;
+  width: max-content;
+  padding: 1rem;
+  background-color: rgba(63, 81, 181, 0.5);
+  border-radius: 15px;
+  h2 {
+    margin: 0;
+  }
+}
+
+.content {
+  margin: 1rem;
+  h3 {
+    font-weight: bold;
+  }
 }
