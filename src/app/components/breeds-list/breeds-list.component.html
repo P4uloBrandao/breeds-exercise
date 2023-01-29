@@ -3,7 +3,7 @@
     <h1>Total breeds: {{ breeds.total }}</h1>
   </div>
   <div class="breeds" *ngFor="let breed of breeds.data">
-    <app-breed [breed]="breed"></app-breed>
+    <app-breed [breed]="breed" (breedSelected)="goToFact($event)"></app-breed>
   </div>
   <div class="paginator" *ngIf="breeds">
     <button

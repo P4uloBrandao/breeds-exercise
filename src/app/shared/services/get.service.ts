@@ -1,13 +1,13 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
-export class GetBreedsService {
+export class GetService {
   constructor(private http: HttpClient) {}
-  getBreeds(oldBreeds: any): Observable<any> {
-    return this.http.get<any>(oldBreeds);
+  get(breedLink: any): Observable<any> {
+    return this.http.get<any>(breedLink);
   }
 }

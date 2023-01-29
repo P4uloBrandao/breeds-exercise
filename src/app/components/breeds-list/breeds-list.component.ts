@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { GetBreedsService } from "src/app/shared/services/getBreeds.service";
+import { Router } from "@angular/router";
+import { GetService } from "src/app/shared/services/get.service";
 
 @Component({
   selector: "app-breeds-list",
@@ -10,9 +11,9 @@ export class BreedsListComponent {
   public breeds: any;
   public totalPages: number = 0;
 
-  constructor(public getBreedService: GetBreedsService) {
+  constructor(public getBreedService: GetService, private route: Router) {
     this.getBreedService
-      .getBreeds("https://catfact.ninja/breeds")
+      .get("https://catfact.ninja/breeds")
       .subscribe((data) => {
         this.breeds = data;
         this.totalPages = Math.round(data.total / data.per_page);
@@ -21,7 +22,7 @@ export class BreedsListComponent {
 
   public getPrevious() {
     this.getBreedService
-      .getBreeds(this.breeds.prev_page_url)
+      .get(this.breeds.prev_page_url)
       .subscribe((data) => {
         this.breeds = data;
       });
@@ -34,7 +35,7 @@ export class BreedsListComponent {
 
   public getNext() {
     this.getBreedService
-      .getBreeds(this.breeds.next_page_url)
+      .get(this.breeds.next_page_url)
       .subscribe((data) => {
         this.breeds = data;
       });
@@ -43,5 +44,9 @@ export class BreedsListComponent {
       left: 0,
       behavior: "smooth",
     });
+  }
+
+  public goToFact(value: any) {
+    this.route.navigate(['breeds-details'], {queryParams: {breed: value}});
   }
 }

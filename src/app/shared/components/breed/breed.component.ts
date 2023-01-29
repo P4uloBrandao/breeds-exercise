@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-breed',
@@ -8,4 +8,11 @@ import { Component, Input } from '@angular/core';
 
 export class BreedComponent {
   @Input() breed: any;
+  @Output() breedSelected = new EventEmitter();
+
+  constructor() { }
+
+  public selectBreed() {
+    this.breedSelected.emit(this.breed.breed);
+  }
 }
